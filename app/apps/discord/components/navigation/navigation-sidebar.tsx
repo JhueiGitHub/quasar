@@ -7,9 +7,12 @@ import { ScrollArea } from "@dis/components/ui/scroll-area";
 import { Separator } from "@dis/components/ui/separator";
 import { Server } from "@prisma/client";
 import { NavigationItem } from "./navigation-item";
-import { ModeToggle } from "../mode-toggle";
 
-const NavigationSidebar = () => {
+interface NavigationSidebarProps {
+  onServerSelect: (serverId: string) => void;
+}
+
+const NavigationSidebar = ({ onServerSelect }: NavigationSidebarProps) => {
   const router = useRouter();
   const [servers, setServers] = useState<Server[]>([]);
 
@@ -42,6 +45,7 @@ const NavigationSidebar = () => {
               id={server.id}
               name={server.name}
               imageUrl={server.imageUrl}
+              onSelect={() => onServerSelect(server.id)}
             />
           </div>
         ))}

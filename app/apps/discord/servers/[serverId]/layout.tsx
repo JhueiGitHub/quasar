@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import NavigationSidebar from "../../components/navigation/navigation-sidebar";
 import { ModalProvider } from "../../components/providers/modal-provider";
